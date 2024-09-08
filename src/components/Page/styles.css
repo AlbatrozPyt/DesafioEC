@@ -1,0 +1,16 @@
+.box-page {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    width: 250px;
+    background: blue;
+}
+
+.container-itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background-color: #fff222;
+}
