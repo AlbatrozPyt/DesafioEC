@@ -16,7 +16,8 @@
     transition: .5s;
 }
 
-button:hover {
+.btn-new:hover,
+.btn-item:hover {
     background: #000;
     color: #fff;
     transition: .5s;
@@ -34,4 +35,10 @@ button:hover {
     outline: none;
     font-size: 18px;
     transition: .5s;
+}
+
+.btn-icon {
+    cursor: pointer;
+    background: transparent;
+    border: none;
 }

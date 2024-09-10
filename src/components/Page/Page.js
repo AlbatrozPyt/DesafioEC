@@ -1,19 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../Button/Button";
-import {Item} from "../Item/Item"
+import { MdModeEdit, MdDelete } from "react-icons/md";
+import { Button, ButtonIcon } from "../Button/Button";
+import { Item } from "../Item/Item"
 import { useEffect, useState } from "react";
-import "./styles.css";
-import { addTask } from "../../features/page/pageSlice";
+import { addTask, deletePage } from "../../features/page/pageSlice";
 import { Form } from "../Form/Form";
+
+import "./styles.css";
 
 export const Page = ({ data, index }) => {
   const [description, setDescription] = useState("");
 
   const inputs = [
     {
-        label: "Descrição da tarefa",
-        id: "descricao",
-        setState: setDescription
+      label: "Descrição da tarefa",
+      id: "descricao",
+      setState: setDescription
     }
   ]
 
@@ -24,19 +26,23 @@ export const Page = ({ data, index }) => {
 
   const newTask = (e) => {
     e.preventDefault();
-    dispatch(addTask({index, description}));
+    dispatch(addTask({ index, description }));
     setShowModal(false)
   };
 
   return (
     <div className="box-page">
       <article className="container-itens">
-        <h1>{data.name}</h1>
+        <div className="container-itens__top">
+          <h1>{data.name}</h1>
+
+          <ButtonIcon className={'btn-icon'} onClick={() => dispatch(deletePage(index))}><MdDelete color="#ff4000" size={24}/></ButtonIcon>
+        </div>
 
         {
-            (data.tasks).map((x, i) => {
-                return <Item obj={x}/>
-            })
+          (data.tasks).map((x, i) => {
+            return <Item obj={x} index={i} />
+          })
         }
       </article>
 
@@ -44,7 +50,7 @@ export const Page = ({ data, index }) => {
 
       {showModal && (
         <Form
-          formName={"Cadastrar página"}
+          formName={"Cadastrar tarefa"}
           inputs={inputs}
           onSubmit={newTask}
         />

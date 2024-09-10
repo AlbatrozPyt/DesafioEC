@@ -11,7 +11,7 @@ export const Form = ({ formName, inputs = [], onSubmit }) => {
             return (
               <div>
                 <label htmlFor={x.id}>{x.label}</label>
-                <input id={x.id} onChange={(e) => x.setState(e.target.value)} />
+                <input id={x.id} onChange={(e) => x.setState(e.target.value)} required={true}/>
               </div>
             );
           })}
