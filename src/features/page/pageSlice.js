@@ -48,9 +48,20 @@ export const pageSlice = createSlice({
           }
         });
       })
+    },
+    moveTask: (state, action) => {
+      state.data.forEach((x, index1) => {
+        if (action.payload.initialPage === index1) {
+          x.tasks.splice(action.payload.indexTask, 1);
+        }
+
+        // if (action.payload.finalPage === index1) {
+        //     x.tasks.push({description: action.payload.description})
+        // }
+      })
     }
   },
 });
 
-export const { addPage, addTask, editTask, deletePage, deleteTask } = pageSlice.actions;
+export const { addPage, addTask, editTask, deletePage, deleteTask, moveTask } = pageSlice.actions;
 export default pageSlice.reducer;

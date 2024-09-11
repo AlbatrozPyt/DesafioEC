@@ -11,6 +11,7 @@ import { addPage } from "../../features/page/pageSlice";
 export const Main = () => {
   const [namePage, setNamePage] = useState("");
 
+  // Inputs do formulário
   const inputs = [
     {
       label: "Nome da página",
@@ -19,11 +20,13 @@ export const Main = () => {
     },
   ];
 
+  // State global e funções
   const data = useSelector((state) => state.page.data);
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
 
+  // Função de criar uma nova página
   const newPage = (e) => {
     e.preventDefault();
     dispatch(addPage({ name: namePage, tasks: [] }));
