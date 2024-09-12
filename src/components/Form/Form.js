@@ -1,6 +1,7 @@
+import { Button, ButtonForm } from "../Button/Button"
 import "./styles.css";
 
-export const Form = ({ formName, inputs = [], onSubmit }) => {
+export const Form = ({ formName, inputs = [], onSubmit, closeFormModal }) => {
   return (
     <div className="background-form">
       <div className="box-form">
@@ -10,13 +11,26 @@ export const Form = ({ formName, inputs = [], onSubmit }) => {
           {inputs.map((x) => {
             return (
               <div>
-                <label htmlFor={x.id}>{x.label}</label>
-                <input id={x.id} onChange={(e) => x.setState(e.target.value)} required={true}/>
+                <label htmlFor={x.id}><p>{x.label}</p></label>
+                <input
+                  className="
+                    px-5
+                    border-2 border-black
+                    w-full  h-[38px]           
+                    rounded
+                  "
+                  id={x.id}
+                  required={true}
+                  onChange={(e) => x.setState(e.target.value)}
+                />
               </div>
             );
           })}
 
-          <button>Continuar</button>
+          <div className="grid justify-items-center gap-5 w-[80%]">
+            <ButtonForm>Continuar</ButtonForm>
+            <ButtonForm type={'button'} onClick={() => closeFormModal(false)}>Cancelar</ButtonForm>
+          </div>
         </form>
       </div>
     </div>

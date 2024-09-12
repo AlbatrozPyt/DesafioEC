@@ -30,34 +30,38 @@ export const pageSlice = createSlice({
       alert("Tarefa cadastrada");
     },
     editTask: (state, action) => {
-      state.data.forEach((x) => {
-        x.tasks.forEach((e, i) => {
-          if (action.payload.index === i) {
-            e.description = action.payload.description;
-          }
-        })
+      state.data.forEach((page, indexPage) => {
+        if (indexPage === action.payload.currentPage) {
+          page.tasks.forEach((task, indexTask) => {
+            if (action.payload.index === indexTask) {
+              task.description = action.payload.description;
+            }
+          })
+        }
       });
 
       alert("Tarefa cadastrada");
     },
     deleteTask: (state, action) => {
-      state.data.forEach(x => {
-        x.tasks.forEach((e, i) => {
-          if (action.payload === i) {
-            x.tasks.splice(i, 1);
-          }
-        });
+      state.data.forEach((page, indexPage) => {
+        if (indexPage === action.payload.currentPage) {
+          page.tasks.forEach((task, indexTask) => {
+            if (indexTask === action.payload.index) {
+              page.tasks.splice(indexTask, 1);
+            }
+          })
+        }
       })
     },
     moveTask: (state, action) => {
-      state.data.forEach((x, index1) => {
-        if (action.payload.initialPage === index1) {
+      state.data.forEach((x, pageIndex) => {
+        if (action.payload.initialPage === pageIndex) {
           x.tasks.splice(action.payload.indexTask, 1);
         }
 
-        // if (action.payload.finalPage === index1) {
-        //     x.tasks.push({description: action.payload.description})
-        // }
+        if (action.payload.finalPage === pageIndex) {
+          x.tasks.push(action.payload.item);
+        }
       })
     }
   },

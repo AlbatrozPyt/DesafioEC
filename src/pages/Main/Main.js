@@ -24,6 +24,7 @@ export const Main = () => {
   const data = useSelector((state) => state.page.data);
   const dispatch = useDispatch();
 
+  // Controla a visibilidade do modal
   const [showModal, setShowModal] = useState(false);
 
   // Função de criar uma nova página
@@ -35,14 +36,15 @@ export const Main = () => {
 
   return (
     <main>
+
       <Container>
         {data.map((x, index) => {
           return <Page data={x} index={index} key={index} />;
         })}
       </Container>
 
-      <Button className={"btn-new"} onClick={() => setShowModal(true)}>
-        Nova página
+      <Button onClick={() => setShowModal(true)}>
+        Nova página 
       </Button>
 
       {/* Formulário para criar um página */}
@@ -51,6 +53,7 @@ export const Main = () => {
           formName={"Cadastrar página"}
           inputs={inputs}
           onSubmit={newPage}
+          closeFormModal={setShowModal}
         />
       )}
     </main>

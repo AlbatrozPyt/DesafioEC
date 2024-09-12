@@ -1,11 +1,11 @@
-.box-page {
+/* .box-page {
     display: grid;
     justify-items: center;
     gap: 8px;
-    width: 250px;
+    width: 20%;
     border: 2px solid;
     padding: 10px;
-}
+} */
 
 .container-itens {
     display: flex;
