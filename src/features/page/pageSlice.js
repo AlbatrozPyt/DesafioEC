@@ -9,7 +9,7 @@ export const pageSlice = createSlice({
     // Manipulação das páginas
     addPage: (state, action) => {
       state.data.push(action.payload);
-      alert("Cadastrado com sucesso.");
+      alert("Página adicionada com sucesso.");
     },
     deletePage: (state, action) => {
       state.data.forEach((x, i) => {
@@ -27,7 +27,7 @@ export const pageSlice = createSlice({
         }
       });
 
-      alert("Tarefa cadastrada");
+      alert("Tarefa adicionada com sucesso.");
     },
     editTask: (state, action) => {
       state.data.forEach((page, indexPage) => {
@@ -40,7 +40,7 @@ export const pageSlice = createSlice({
         }
       });
 
-      alert("Tarefa cadastrada");
+      alert("Tarefa atualizado com sucesso.");
     },
     deleteTask: (state, action) => {
       state.data.forEach((page, indexPage) => {

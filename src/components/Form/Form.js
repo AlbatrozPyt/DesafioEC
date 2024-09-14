@@ -4,7 +4,7 @@ import "./styles.css";
 export const Form = ({ formName, inputs = [], onSubmit, closeFormModal }) => {
   return (
     <div className="background-form">
-      <div className="box-form">
+      <div className="box-form cursor-default">
         <h1>{formName}</h1>
 
         <form onSubmit={onSubmit}>

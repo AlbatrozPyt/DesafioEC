@@ -8,6 +8,8 @@ import { setItem } from "../../features/itemDrag/itemSlice";
 import "./styles.css";
 
 export const Item = ({ obj, index, currentPage }) => {
+  // State que seleciona o tipo de cursor
+  const [cursor, setCursor] = useState('cursor-grab');
 
   // State global
   const dataF = useSelector((state) => state.page.data);
@@ -41,7 +43,7 @@ export const Item = ({ obj, index, currentPage }) => {
 
   return (
     <div
-      className="container-item"
+      className={`container-item ${cursor}`}
       onDrag={() => {
         dispatchItem(setItem({item: obj, index, currentPage}))
       }}
@@ -62,6 +64,7 @@ export const Item = ({ obj, index, currentPage }) => {
           formName={"Editar tarefa"}
           inputs={inputs}
           onSubmit={updateTask}
+          closeFormModal={setShowModal}
         />
       )}
     </div>
