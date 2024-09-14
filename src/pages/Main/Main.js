@@ -38,7 +38,7 @@ export const Main = () => {
     <main>
 
       <Container>
-        {data.length === 0 ? <h1 className="mt-12">Nehuma página foi adicionada</h1>: null}
+        {data.length === 0 ? <h1 className="mt-12">Nenhuma página foi adicionada</h1>: null}
         {data.map((x, index) => {
           return <Page data={x} index={index} key={index} />;
         })}
