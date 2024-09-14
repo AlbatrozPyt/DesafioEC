@@ -16,3 +16,10 @@
   <li>Depois o comando: <code>npm start</code></li>
   <li>Pronto, o projeto estará rodando (sempre com preferência em <strong>http://localhost:3000</strong>)</li>
 </ul>
+
+## Links
+
+<ul>
+  <li><a href="https://drive.google.com/file/d/1PSF0u8MT9Ok-q07XGmhBXr8Bq0CBbgvp/view?usp=sharing">Link para ver um vídeo de demosntração</a></li>
+  <li><a href="https://desafio-ec-three.vercel.app/">Link para testar o projeto</a></li>
+</ul>
